@@ -1,0 +1,16 @@
+graph G {
+    node [shape=rect]
+    A [label="Basel III Capital\n8% of RWA"]
+    B1 [label="Tier 1 Capital\n6% of RWA"]
+    B2 [label="Tier 2"]
+    C1 [label="Core Tier 1\n4.5% of RWA"]
+    C2 [label="Additional Tier 1"]
+
+    rankdir = LR
+
+    A -- B1
+    A -- B2
+    B1 -- C1
+    B1 -- C2
+
+}

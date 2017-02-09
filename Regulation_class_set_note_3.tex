@@ -1,0 +1,152 @@
+\documentclass[12pt]{article}
+\input{assets/article_preamble.tex}
+
+\author{Yi Liu (yxl105@bham.ac.uk)}
+\date{\today}
+\title{CLASS NOTE FOR CLASS SET 3}
+
+\begin{document}
+\maketitle
+
+For detailed explanations please refer to: Hull, Ch. 12; Resti and Sironi, Risk Management and Shareholders’ Value in Banking, Ch. 18.
+
+The intuition of the Basel I Capital Adequacy Requirement is that the regulatory capital should be at least 8\% of the risk-weighted assets, and at least 50\% of the regulatory capital should be Tier 1 (Cooke Ratio).
+
+\begin{align*}
+  \textit{Tier 1 Capital} \geq 4\% \, \textit{of RWA} \\
+  \textit{Tier 1 Capital} + \textit{Tier 2 Capital} \geq 8\% \, \textit{of RWA}
+\end{align*}
+
+\tableofcontents
+
+\section{Risk-Weighted Assets}
+
+\subsection{On-Balance-Sheet Items}
+
+For on-balance-sheet items, we mutiply their asset amounts with their corresponding risk weights.
+
+% Table 1 Risk Weights for On-Balance-Sheet Items
+\begin{table}[htbp]
+  \centering
+  \begin{threeparttable}[t]
+    \caption[Risk Weights for On-Balance-Sheet Items]{
+      \textbf{Risk Weights for On-Balance-Sheet Items} \\
+      \footnotesize{
+        \centerline{\footnotesize{
+            \citep[Chap.12, pp. 260]{hull2012risk}}}}}
+
+    \begin{tabular}{rp{12cm}}
+      \hline \hline
+      \textbf{Risk Weight(\%)} & \textbf{Asset Category} \\
+      \hline
+      0 & Cash, gold bullion, claims on OECD governments such as Treasury bonds or insured residential mortgages \\
+      20 & Claims on OECD banks and OECD public sector entities such as securities issued by U.S. government agencies or claims on municipalities \\
+      50 & Uninsured residential mortgage loans \\
+      100* & All other claims such as corporate bonds and less-developed country debt, claims on non-OECD banks; Plant and other fixed assets \\
+      \hline \hline
+    \end{tabular}
+
+    \begin{tablenotes}
+    \item
+      \footnotesize{
+        * The risk weights for off-balance-sheet items are similar to those in the Table except that \textbf{the risk weight for a corporation is 0.5} rather than 1.0 when off-balance-sheet items are considered.}
+    \end{tablenotes}
+
+  \end{threeparttable}
+\end{table}
+% table ended
+
+\subsection{Off-Balance-Sheet Items}
+
+For off-balance-sheet items, their \textit{credit equivalent amounts} are considered as their ``asset amounts''.
+
+\begin{itemize}
+\item For \textbf{non-derivatives}, the credit equivalent amount is calculated by applying a conversion factor to the principal amount of the instrument.
+\item For derivatives, the formula for the credit equivalent amount for derivative $ j $ is
+
+  \begin{align*}
+    C_{j} = max( V_{j}, 0 ) + a_{j} L_{j}
+  \end{align*}
+
+  V: current value of the derivative to the bank (a positive V means the bank is exposed to a loss of V, a negative V leaves the bank unaffected) \\
+  a: the add-on factor \\
+  L: the principal amount \\
+\end{itemize}
+
+\begin{table}[htbp]
+  \caption[Add-on Factors as a Percent of Principal for Derivatives]{
+    \textbf{Add-on Factors as a Percent of Principal for Derivatives} \\
+    \centerline{\footnotesize{
+        \citep[Chap.12, pp. 261]{hull2012risk}}}}
+  \begin{tabular}{p{2cm}p{2cm}p{2cm}p{2cm}p{2cm}p{2cm}}
+    \toprule
+    \footnotesize{\textbf{Remaining Maturity}} & \footnotesize{\textbf{Interest Rate}} & \footnotesize{\textbf{Exchange Rate and Gold}} & \footnotesize{\textbf{Equity}} & \footnotesize{\textbf{Precious Metals except Gold}} & \footnotesize{\textbf{Other Commodities}} \\
+    \midrule
+    $ < $ 1 & 0.0 & 1.0 & 6.0 & 7.0 & 10.0 \\
+    1 to 5 & 0.5 & 5.0 & 8.0 & 7.0 & 12.0 \\
+    $ > $ 5 & 1.5 & 7.5 & 10.0 & 8.0 & 15.0 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\FloatBarrier
+
+\subsubsection{Netting}
+
+With netting, the credit equivalent amount(CEA) of the derivatives for a particular counterparty and the net replacement ratio(NRR) is
+
+\begin{align*}
+  CEA & = max(\sum_{i=1}^{N} V_{i}, 0) + (0.4 + 0.6 NRR) \sum_{i=1}^{N} a_{i} L_{i} \\
+  NRR & = \frac{ max(\sum_{i=1}^{N} V_{i}, 0) }{  \sum_{i=1}^{N} max(V_{i}, 0) }
+\end{align*}
+
+\subsection{Total risk Weighted Assets}
+
+The total risk weighted assets for a bank with N on-balance-sheet items and M off-balance-sheet items is
+
+\begin{align*}
+  \sum_{i=1}^{N} w_{i} L_{i} + \sum_{j=1}^{M} w_{j}^{*} C_{j}
+\end{align*}
+
+\section{Regulatory Capital Levels}
+
+\begin{table}
+
+  \caption[Components of Regulatory Capital in the Basel Capital Accord]{
+    \textbf{Components of Regulatory Capital in the Basel Capital Accord} \\
+    \centerline{\footnotesize{
+        \citep[Chap.18, pp.550]{RestiSironi2007Banking}}}}
+
+  \begin{tabular}{|p{3cm}|p{8cm}|p{3cm}|}
+
+    \toprule
+    \textbf{Component} & \textbf{Conditions for inclusion} & \textbf{Limits and Restrictions} \\
+    \midrule
+    \multicolumn{3}{|c|}{Upper Tier 1} \\
+    \hline
+    Paid-up share capital/ordinary (common) shares &  & \multirow{2}{3cm}{At least 4\% of risk-weighted assets} \\ \cline{1-2}
+    Disclosed reserves (e.g. share premium reserves or retained earnings) & General provisions are accepted only if they derive from post-tax earnings or are adjusted for tax liabilities, if they are shown separately in the bank’s financial statements, and if they are immediately available for the coverage of losses (transiting through the profit and loss account). & \\
+    \hline
+    \multicolumn{3}{|c|}{Lower Tier 1} \\
+    \hline
+    Innovative capital instruments & Capital securities, preferred securities, preference shares & No more than 15\% of Tier 1 \\
+    \hline
+    \multicolumn{3}{|c|}{Upper Tier 2} \\
+    \hline
+    Undisclosed reserves & Allowed only if they transit through the profit and loss account, if they are free from charges or other known liabilities, if they are free and immediately available to cover unexpected future losses, and if they have been accepted by the supervisory authorities. & \multirow{3}{3cm}{No more than 100\% of Tier 1} \\ \cline{1-2}
+    Revaluation reserves & For hidden reserves, there is a prudential deduction of 55\% of the difference between market value and recognized cost. & \\ \cline{1-2}
+    General loan loss provisions & These are allowed only if created to cover unidentified losses, and may not exceed $ 1.25\%/0.6\% $ of risk-weighted assets. & \\ \hline
+    Hybrid capital instruments & Unsecured, subordinated and fully subscribed; not redeemable at the holder’s initiative or without consent of the supervisory authorities; can be used to cover losses without the need to liquidate the bank; can be deferred if the bank’s profits do not allow payment. & \\
+    \hline
+    \multicolumn{3}{|c|}{Lower tier 2} \\
+    \hline
+    Subordinated term debt & Original term to maturity of at least 5 years. Amortized at 20\% per year if maturing in less than 5 years. & No more than 50\% of Tier 1 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\FloatBarrier
+\bibliographystyle{jmr}
+\bibliography{G33D_bib}
+
+\end{document}

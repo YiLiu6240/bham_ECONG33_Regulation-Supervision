@@ -1,0 +1,90 @@
+\documentclass[12pt]{article}
+\input{assets/article_preamble.tex}
+
+\author{Yi Liu (yxl105@bham.ac.uk)}
+\date{\today}
+\title{CLASS NOTE FOR CLASS SET 4 \\
+  \large Basel II: Capital Regulation for Credit Risk}
+
+\begin{document}
+\maketitle
+
+There are three approaches to calculate regulatory capital for credit risk: the standardised approach, the foundational IRB approach, and the advanced IRB approach.
+
+The intuition is to give banks the incentive to develop their own risk management skill to enjoy lower capital from the more sophisticated approach (\textit{why and how?}).
+
+\section{Standardised Approach}
+
+The creditworthiness of the counterparties are now taken into account (in the form of external credit ratings).
+
+\begin{table}
+  \begin{threeparttable}
+
+    \caption[Risk Weights as a Percent of Principal for Exposures to Countries, Banks, and Corporations Under Basel II’s Standardised Approach]{
+      \textbf{Risk Weights as a Percent of Principal for Exposures to Countries, Banks, and Corporations Under Basel II’s Standardised Approach} \\
+      \centerline{\footnotesize{
+          % Hull, Chap. 12, pp.270
+          \citep[Chap.12, pp.270]{hull2012risk}
+        }}
+    }
+
+    \begin{tabular}{lp{1.5cm}p{1.5cm}p{1.5cm}p{1.5cm}p{1.5cm}p{1.5cm}p{1.5cm}}
+      \hline \hline
+      & AAA to AA- & A+ to A- & BBB+ to BBB- & BB+ to BB- & B+ to B- & Below B- & Unrated \\
+      \hline
+      Country* & 0 & 20 & 50 & 100 & 100 & 150 & 100 \\
+      Banks** & 20 & 50 & 50 & 100 & 100 & 150 & 50 \\
+      Corporations & 20 & 50 & 100 & 100 & 150 & 150 & 100 \\
+      \hline \hline
+    \end{tabular}
+
+    \begin{tablenotes}
+    \item \footnotesize{
+        *Includes exposures to the country’s central bank
+      }
+    \item \footnotesize{
+        **National supervisors have options of incorporations
+      }
+    \end{tablenotes}
+
+  \end{threeparttable}
+\end{table}
+
+The risk weight for retail lending: 75\%; for residential mortgage: 35\%; for commercial real estate: 100\%.
+
+\section{The IRB Approach}
+
+Intuition: The regulatory capital is to cover unexpected loss only. Expected loss is to be covered by the pricing of risks.
+
+\subsection*{Corporate, Sovereign, and Bank Exposures}
+
+The risk-weighted assets are calculated as
+
+\begin{align*}
+  RWA & = 12.5 \times EAD \times LGD \times (WCDR - PD) \times MA \\
+  \textrm{where} \\
+  \rho & = 0.12(1 + e^{-50 \times PD}) \\
+  WCDR & = N[\frac{ N^{-1} (PD) +\sqrt{\rho} N^{-1} (0.999) }{ \sqrt{ 1 - \rho } }] \\
+  b & = [0.11852 - 0.05478 \times ln(PD)]^{2} \\
+  MA & = \frac{ 1 + (M-2.5) \times b }{ 1 - 1.5 \times b }
+\end{align*}
+
+$ N(.) $ and $ N-1(.) $ can be calculated using NORM.S.DIST and NORM.S.INV functions in Excel respectively(you can also use a normal distribution table).
+
+\subsection*{Retail Exposures}
+
+For residential mortgages, $ \rho $ is set to 0.15.
+
+For other retail exposures, the risk-weigthed assets are calculated as
+
+\begin{align*}
+  RWA & = 12.5 \times EAD \times LGD \times (WCDR - PD) \\
+  \textrm{where} \\
+  \rho & = 0.03 + 0.13 e^{-35 \times PD}
+\end{align*}
+
+\FloatBarrier
+\bibliographystyle{jmr}
+\bibliography{G33D_bib}
+
+\end{document}

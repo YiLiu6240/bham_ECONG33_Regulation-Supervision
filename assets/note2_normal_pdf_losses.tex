@@ -1,0 +1,24 @@
+\documentclass{standalone}
+\usepackage{tikz, pgfplots}
+\usetikzlibrary{patterns}
+
+\pgfmathdeclarefunction{gausspdf}{2}{%
+  \pgfmathparse{1/(#2*sqrt(2*pi))*exp(-((x-#1)^2)/(2*#2^2))}%
+}
+
+\begin{document}
+\begin{tikzpicture}[]
+    \begin{axis}[
+        xmin=-7,xmax=7, ymin=0,ymax=0.4,
+        xlabel={\(x\)}, ylabel={\(f(x)\)},
+        xtick={4}, xticklabels={\(V\)}]
+    \addplot[color=red,domain=-7:7,samples=100] {gausspdf(0.6,2)};
+    \addlegendentry{\(N(0.6, 2^2)\)}
+    \addplot+[mark=none,
+        domain=4:7,
+        samples=100,
+        area legend,
+        fill=red] {gausspdf(0.6,2)} \closedcycle;
+    \end{axis}
+\end{tikzpicture}
+\end{document}

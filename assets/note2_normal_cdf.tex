@@ -1,0 +1,25 @@
+\documentclass{standalone}
+\usepackage{tikz, pgfplots}
+\usetikzlibrary{patterns}
+
+\pgfmathdeclarefunction{gausscdf}{2}{%
+  % approximated cdf
+  % http://tex.stackexchange.com/questions/60950/how-to-draw-cdf-of-normal-distribution-in-tikz
+  \pgfmathparse{1/(1 + exp(-0.07056*((x-#1)/#2)^3 - 1.5976*(\x-#1)/#2))}%
+}
+
+\begin{document}
+\begin{tikzpicture}[]
+    \begin{axis}[
+        xmin=-7,xmax=7, ymin=0,ymax=1,
+        xlabel={\(x\)}, ylabel={\(F_{X}(x)\)},
+        xtick={-4}, xticklabels={\(V\)},
+        ytick={0.01072}, yticklabels={\(0.001\)}, % pnorm(-4, 0.6, 2)
+        legend style={at={(0,1)},anchor=north west}]
+    \addplot[color=red,domain=-7:7,samples=100] {gausscdf(0.6,2)};
+    \addlegendentry{\(N(0.6, 2^2)\)}
+    \addplot[color=blue,domain=-7:7,samples=100] {gausscdf(0,1)};
+    \addlegendentry{\(N(0, 1^2)\)}
+    \end{axis}
+\end{tikzpicture}
+\end{document}

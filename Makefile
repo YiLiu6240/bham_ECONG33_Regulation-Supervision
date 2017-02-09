@@ -13,6 +13,10 @@ ASSET5=$(OUTDIR)/Basel_III_capital.pdf
 
 all: note1 note2 note3 note4 note5 clean
 
+prebuild: all
+	mkdir -p prebuild
+	cp -r $(OUTDIR)/* prebuild
+
 clean:
 	latexmk -c
 

@@ -15,34 +15,31 @@ You need to know how the various operations of a bank are reflected in the diffe
 
 \section*{Question Seven}
 
-In order to find the additional capital to hold, we need to find the critical value V in the distribution of income that:
+In order to find the ``additional'' capital to hold, we need to find a value \(V\) in the distribution of income so that:
 
 ``We will be 99.9\% sure that we will not get an income less than V%
-\footnote{
-  see \citet[Chap.9, pp.183-185]{hull2012risk} for detailed explanations.}%
-.''
+\footnote{See \citet[Chap.9, pp.183-185]{hull2012risk} for explanations.}.''
 
 Or equivalently,
 
 \begin{align*}
-  Pr(X \leq V) & = 1-0.99\% \\
+  Pr(X \leq V) & = 100\% - 99.9\% \\
                & = 0.1\%
 \end{align*}
 
-where X denotes a random outcome in the distribution of
+where \(X\) denotes a random outcome in the distribution of
 \(X \sim N(\mu, \sigma^2)\), \(\mu = 0.6, \sigma = 2\)
-and significance level \(\alpha = 0.001\).
+with a significance level \(\alpha = 0.001\).
 
-So \(V\) will be the \(0.1\)th percentile value in the distribution, which is%
+So \(V\) will be the \(0.001^{th}\) quantile (\(0.1^{th}\) percentile) value in the specified normal distribution:%
 \footnote{
-  \(Z_{\alpha} = 3.090\)  when  \(\alpha = 0.001\).
-  You need to refer to a statistics book about the transformation between a standardised normal critical value and a normal critical value.
-}%
+  \(Z_{\alpha} = -3.090\)  when  \(\alpha = 0.001\).
+  You need to refer to a statistics book about the transformation between a standardised normal critical value and a normal critical value.}%
 :
 
 \begin{align*}
-  V & = \mu - Z_{\alpha}\sigma \\
-    & = 0.6 - 3.09*2 \\
+  V & = \mu + Z_{\alpha} \times \sigma \\
+    & = 0.6 + (- 3.09)*2 \\
     & = -5.58
 \end{align*}
 

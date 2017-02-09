@@ -1,9 +1,9 @@
-Class set notes for International Banking & Finance: Regulation and Supervision
+ECONG33 International Banking & Finance: Regulation and Supervision -- Class set notes
 ====
 
 Author: Yi Liu (yxl105[at]bham.ac.uk)
 
-You can obtain the pre-compiled pdf notes from [prebuild](prebuild/) (not necessarily up to date).
+You can obtain the pre-compiled pdf notes from the [prebuild](prebuild/) folder (not necessarily up to date).
 
 How to build
 ----

@@ -8,31 +8,44 @@
 \begin{document}
 \maketitle
 
-\section*{Value at Risk}
+\section*{Concept}
 
-(For detailed discussion of Value at Risk please refer to
-\citet[Chap.9]{hull2012risk})
+(For detailed discussion of Value-at-Risk please refer to \citet[Chap.9]{hull2012risk}).
 
-In this class set we have come across the calculations of \(VaR\)s of different situations:
-outcomes (gains/losses) being continuously distributed, outcomes being discretely distributed, the potential non-uniqueness of \(VaR\)s, portfolios and different times horizons.
+What we try to get from Value-at-Risk is to measure the maximum level of losses given a confidence level, or ``how bad can the losses be for p\% of all the possible scenarios''.
 
-Since the definition of \(VaR\) shares some common feature with the definition of the cumulative distribution function of a random variable (be careful with the mathematical notation when you define the distribution as gains or losses!), so we can find the \(VaR\) from the CDF graph when constructed correctly.
-In the case of a continuous random variable, a probability density function might give you a more intuitive idea about \(VaR\) as a certain critical value in the distribution graph.
-You need to know what the CDF and PDF of a random variable will be in different cases (especially the CDF of a discrete variable and how to interpret it!).
+Using the scenario we discussed in Class set 1, where the bank's profit follows a normal distribution of \(X \sim N(\mu = 0.6, \sigma^2 = 2^2)\). We try to pinpoint a \(V\) which divides the area of probabilities into two portions \(0.1\%\) and \(99.9\%\).
 
-In terms of portfolios and time-horizons, you need to be careful about how outcomes of each single item are correlated.
-If we have independent projects in a portfolio, we can work out the outcomes of the portfolio from the outcomes of single projects and their corresponding probabilities, and then find the \(VaR\) from the CDF graph of the portfolio. If the outcomes are identically independently distributed, we
-can calculate the \(VaR\)s for different time horizons from the formula we discussed in class%
-\footnote{
-  If you are curious about how the formula comes from, there is no straight
-  derivation in \textit{Hull}, however we can get the formula from the general formula of aggregating \(VaR\)s \citet[pp. 187]{hull2012risk} when outcomes of each single items in a portfolio are correlated in a certain way.
-  If we think of the \(VaR\) of a certain time horizon as the \(VaR\) of a portfolio, which we know the \(VaR\) of a single period, we can derive the formula when the distribution is \(IID\).
-}.
-For a general discussion of \(VaR\)s when outcomes of each single item are correlated, please read
-\citet[Chap.9, pp.187]{hull2012risk}
-or
-\citet[pp.200]{MatthewsThompson2008Banking}%
-.
+\begin{figure}[h]
+  \centering
+  \caption{\(VaR\) in a Normal Distribution}
+  \begin{tabular}{cc}
+  \includegraphics[width=0.4\textwidth]{output/note2_normal_pdf.pdf} &
+  \includegraphics[width=0.4\textwidth]{output/note2_normal_cdf.pdf} \\
+  \(pdf\) & \(cdf\)
+  \end{tabular}
+  \label{fig:note2_normal_pdf}
+\end{figure}
+
+\begin{figure}[h]
+  \centering
+  \caption{\(VaR\) measured as losses}
+  \begin{tabular}{cc}
+  \includegraphics[width=0.4\textwidth]{output/note2_normal_pdf_losses.pdf} &
+  \includegraphics[width=0.4\textwidth]{output/note2_normal_cdf_losses.pdf} \\
+  \(pdf\) & \(cdf\)
+  \end{tabular}
+  \label{fig:note2_normal_pdf}
+\end{figure}
+
+% In other words, we try to pinpoint an \(x\) (or a range of \(x\)) that is associated with the cumulative probability on the \(cdf\).
+
+% The location of \(VaR\) is also dependent on how we denote \(x\). In the above example, we denote \(x\) as ``gains'', and when we denote \(x\) as ``losses'', we get:
+
+% As we have discussed in the class tutorial, \(VaR\) is also applicable when dealing with discrete outcomes.
+% Refer to XXX for more details.
+
+\section*{Portfolio \(VaR\)}
 
 \bibliographystyle{jmr}
 \bibliography{G33D_bib}

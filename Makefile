@@ -10,17 +10,18 @@ OUT3=$(OUTDIR)/$(SRC3).pdf
 OUT4=$(OUTDIR)/$(SRC4).pdf
 OUT5=$(OUTDIR)/$(SRC5).pdf
 
-all: note1 note2 note3 note4 note5 clean
+all: assets note1 note2 note3 note4 note5 clean
 
 prebuild: all
 	mkdir -p prebuild
-	cp -r $(OUTDIR)/* prebuild
+	cp -r $(OUTDIR)/Regulation_class_set_note_* prebuild
 
 clean:
 	latexmk -c
 
 cleanall:
 	rm -rf $(OUTDIR)
+	rm -rf prebuild
 
 .PHONY: all clean cleanall note1 note2 note3 note4 note5 assets
 

@@ -29,6 +29,7 @@ note1: assets
 	mkdir -p $(OUTDIR)
 	latexmk -pdf $(SRC1)
 	mv $(SRC1).pdf $(OUTDIR)
+	latexmk -c
 
 note2:
 	mkdir -p $(OUTDIR)
@@ -39,16 +40,19 @@ note3:
 	mkdir -p $(OUTDIR)
 	latexmk -pdf $(SRC3)
 	mv $(SRC3).pdf $(OUTDIR)
+	latexmk -c
 
 note4:
 	mkdir -p $(OUTDIR)
 	latexmk -pdf $(SRC4)
 	mv $(SRC4).pdf $(OUTDIR)
+	latexmk -c
 
 note5:
 	mkdir -p $(OUTDIR)
 	latexmk -pdf $(SRC5)
 	mv $(SRC5).pdf $(OUTDIR)
+	latexmk -c
 
 assets:
 	mkdir -p $(OUTDIR)

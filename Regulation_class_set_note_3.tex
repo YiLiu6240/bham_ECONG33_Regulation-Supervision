@@ -7,19 +7,18 @@
 
 \begin{document}
 \maketitle
+\tableofcontents
+\newpage
 
 For detailed explanations please refer to: Hull, Ch. 12; Resti and Sironi, Risk Management and Shareholders’ Value in Banking, Ch. 18.
 
 The intuition of the Basel I Capital Adequacy Requirement is that the regulatory capital should be at least 8\% of the risk-weighted assets, and at least 50\% of the regulatory capital should be Tier 1 (Cooke Ratio).
-
 \begin{align*}
   \textit{Tier 1 Capital} \geq 4\% \, \textit{of RWA} \\
   \textit{Tier 1 Capital} + \textit{Tier 2 Capital} \geq 8\% \, \textit{of RWA}
 \end{align*}
 
-\tableofcontents
-
-\section*{Risk-Weighted Assets}
+\section{Risk-Weighted Assets}
 
 \subsection{On-Balance-Sheet Items}
 
@@ -36,14 +35,14 @@ For on-balance-sheet items, we mutiply their asset amounts with their correspond
             \citep[Chap.12, pp. 260]{hull2012risk}}}}}
 
     \begin{tabular}{rp{12cm}}
-      \hline \hline
+      \toprule
       \textbf{Risk Weight(\%)} & \textbf{Asset Category} \\
-      \hline
+      \midrule
       0 & Cash, gold bullion, claims on OECD governments such as Treasury bonds or insured residential mortgages \\
       20 & Claims on OECD banks and OECD public sector entities such as securities issued by U.S. government agencies or claims on municipalities \\
       50 & Uninsured residential mortgage loans \\
       100* & All other claims such as corporate bonds and less-developed country debt, claims on non-OECD banks; Plant and other fixed assets \\
-      \hline \hline
+      \bottomrule
     \end{tabular}
 
     \begin{tablenotes}
@@ -63,7 +62,6 @@ For off-balance-sheet items, their \textit{credit equivalent amounts} are consid
 \begin{itemize}
 \item For \textbf{non-derivatives}, the credit equivalent amount is calculated by applying a conversion factor to the principal amount of the instrument.
 \item For derivatives, the formula for the credit equivalent amount for derivative \(j\) is
-
   \begin{align*}
     C_{j} = max( V_{j}, 0 ) + a_{j} L_{j}
   \end{align*}
@@ -94,7 +92,6 @@ For off-balance-sheet items, their \textit{credit equivalent amounts} are consid
 \subsubsection{Netting}
 
 With netting, the credit equivalent amount(CEA) of the derivatives for a particular counterparty and the net replacement ratio(NRR) is
-
 \begin{align*}
   CEA & = max(\sum_{i=1}^{N} V_{i}, 0) + (0.4 + 0.6 NRR) \sum_{i=1}^{N} a_{i} L_{i} \\
   NRR & = \frac{ max(\sum_{i=1}^{N} V_{i}, 0) }{  \sum_{i=1}^{N} max(V_{i}, 0) }
@@ -108,7 +105,7 @@ The total risk weighted assets for a bank with N on-balance-sheet items and M of
   \sum_{i=1}^{N} w_{i} L_{i} + \sum_{j=1}^{M} w_{j}^{*} C_{j}
 \end{align*}
 
-\section*{Regulatory Capital Levels}
+\section{Regulatory Capital Levels}
 
 \begin{table}
 

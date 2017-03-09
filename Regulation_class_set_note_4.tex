@@ -82,6 +82,44 @@ For other retail exposures, the risk-weigthed assets are calculated as
   \rho & = 0.03 + 0.13 e^{-35 \times PD}
 \end{align*}
 
+\newpage
+\appendix
+\section*{Appendix}
+\subsection*{Worst Case Default Rate (\(WCDR\))}
+
+Relevant information can be found in \citet[Chapter 11.5]{hull2012risk} and
+\citet[Chapter 3.3]{trueck2009rating}.
+
+Suppose we have the change in the value of an asset that follows a standarised
+normal distribution, \(Z \sim N(0, 1)\), which can be further decomposed
+\citep{belkin1998one} into two components: a systematic component (i.e. the
+market condition) \(X\), and an idiosyncratic component \(\epsilon\),
+\[ Z = \sqrt{\rho} X = \sqrt{1 - \rho} \epsilon. \]
+
+where \(X \sim N(0, 1)\), \(\epsilon \sim N(0, 1)\) and \(\sqrt{\rho}\) denotes
+the sensitivity of the asset against the systematic risk \(X\).
+
+Denote \(c\) to be the critical value of ``the bankruptcy state'' in terms of
+asset changes, and \(N\) to be the \(c.d.f\) of \(N(0, 1)\), the
+``unconditional'' probability of default can then be expressed as
+\[ Pr(Z < c) = N(c) = PD. \]
+Or equivalently,
+\[ c = N^{-1}(PD). \]
+The probability of default, ``conditional'' on the
+systematic risk at a specific level \(x\), is then
+\begin{align*}
+  Pr(Z < c | X = x) & = Pr \left( (\sqrt{\rho} X + \sqrt{1 - \rho} \epsilon) \right) \\
+                    & = Pr \left( (\epsilon < \frac{C - \sqrt{\rho} X}{\sqrt{1 - \rho}} | X = x) \right) \\
+                    & = N \left( \frac{c - \sqrt{\rho} x}{\sqrt{1 - \rho}} \right)
+\end{align*}
+
+In the context of Basel II, we measure \(WCDR\) as the probability of default of
+the asset, conditional on the market condition at its \(0.001^{th}\) quantile
+level. Therefore,
+\begin{align*}
+  WCDR & = N \left( \frac{N^{-1}(PD) - \sqrt{\rho} N^{-1}(0.001)}{\sqrt{1 - \rho}} \right) \\
+       & = N \left( \frac{N^{-1}(PD) + \sqrt{\rho} N^{-1}(0.999)}{\sqrt{1 - \rho}} \right)
+\end{align*}
 
 \FloatBarrier
 \bibliographystyle{jmr}

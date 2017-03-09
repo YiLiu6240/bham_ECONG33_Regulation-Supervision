@@ -10,15 +10,25 @@
 
 \section*{Concept}
 
-(For detailed discussion of Value-at-Risk please refer to \citet[Chap.9]{hull2012risk}).
+(For detailed discussion of Value-at-Risk please refer to
+\citet[Chap.9]{hull2012risk}).
 
-What we try to get from Value-at-Risk is to measure the maximum level of losses given a confidence level, or ``how bad can the losses be for p\% of all the possible scenarios''.
+What we try to get from Value-at-Risk is to measure the maximum level of losses
+given a confidence level, or ``how bad can the losses be for p\% of all the
+possible scenarios''.
 
-Using the scenario we discussed in Class set 1, where the bank's profit follows a normal distribution of \(X \sim N(\mu = 0.6, \sigma^2 = 2^2)\), we try to pinpoint a \(V\) which divides the area of probabilities (under the probability density function \(pdf\) curve) into two portions \(0.1\%\) and \(99.9\%\).
-It's even easier for us to spot \(V\) that is associated with a cumulative probability of \(0.001\) on the cumulative distribution function \(cdf\) plot. The \(V\) is the \(VaR\) we are looking for (Figure~\ref{fig:note2_VaR_gaussian}).
+Using the scenario we discussed in Class set 1, where the bank's profit follows
+a normal distribution of \(X \sim N(\mu = 0.6, \sigma^2 = 2^2)\), we try to
+pinpoint a \(V\) which divides the area of probabilities (under the probability
+density function \(pdf\) curve) into two portions \(0.1\%\) and \(99.9\%\). It's
+even easier for us to spot \(V\) that is associated with a cumulative
+probability of \(0.001\) on the cumulative distribution function \(cdf\) plot.
+The \(V\) is the \(VaR\) we are looking for
+(Figure~\ref{fig:note2_VaR_gaussian}).
 
-Under such a normal distribution setting, we calculate \(VaR\) from the ``transformation'' formula\footnote{
-  which is derived from the normal distribution quantile function (inverse function of \(cdf\)):
+Under such a normal distribution setting, we calculate \(VaR\) from the
+``transformation'' formula\footnote{ which is derived from the normal
+  distribution quantile function (inverse function of \(cdf\)):
 
   \begin{equation*}
     VaR_{1-\alpha} = F^{-1}_{X} (x) = \mu + \sigma \sqrt{2} {erf}^{-1} (2F - 1)
@@ -33,46 +43,55 @@ Under such a normal distribution setting, we calculate \(VaR\) from the ``transf
   \caption{\(VaR\) in a Normal Distribution}
   \label{fig:note2_VaR_gaussian}
   \begin{tabular}{cc}
-  \includegraphics[width=0.4\textwidth]{output/note2_normal_pdf.pdf} &
-  \includegraphics[width=0.4\textwidth]{output/note2_normal_cdf.pdf} \\
-  \(pdf\) & \(cdf\)
+    \includegraphics[width=0.4\textwidth]{output/note2_normal_pdf.pdf} &
+                                                                         \includegraphics[width=0.4\textwidth]{output/note2_normal_cdf.pdf} \\
+    \(pdf\) & \(cdf\)
   \end{tabular}
 \end{figure}
 
-In addition, note that the \(VaR\) is represented differently if we denote \(x\) as losses (Figure~\ref{fig:note2_VaR_losses}).
+In addition, note that the \(VaR\) is represented differently if we denote \(x\)
+as losses (Figure~\ref{fig:note2_VaR_losses}).
 
 \begin{figure}[h]
   \centering
   \caption{\(VaR\) measured as losses}
   \label{fig:note2_VaR_losses}
   \begin{tabular}{cc}
-  \includegraphics[width=0.4\textwidth]{output/note2_normal_pdf_losses.pdf} &
-  \includegraphics[width=0.4\textwidth]{output/note2_normal_cdf_losses.pdf} \\
-  \(pdf\) & \(cdf\)
+    \includegraphics[width=0.4\textwidth]{output/note2_normal_pdf_losses.pdf} &
+                                                                                \includegraphics[width=0.4\textwidth]{output/note2_normal_cdf_losses.pdf} \\
+    \(pdf\) & \(cdf\)
   \end{tabular}
 \end{figure}
 
-We discussed in the class tutorial how \(VaR\) can be obtained for other kinds of continuous distributions.
-We also discussed how \(VaR\) can be applied when dealing with discrete outcomes.
-Refer to \citet[p.186]{hull2012risk} for details.
+We discussed in the class tutorial how \(VaR\) can be obtained for other kinds
+of continuous distributions. We also discussed how \(VaR\) can be applied when
+dealing with discrete outcomes. Refer to \citet[p.186]{hull2012risk} for
+details.
 
 \section*{Portfolio \(VaR\) \citep[p.192-194, p.195-197]{hull2012risk}}
 
-From portfolio theory we derive the returns and volatility of an investment portfolio from the elements (weight \(w_i\), return \(R_i\), volatility \(\sigma_i\), correlation \(\rho_{i, j}\)) of individual investment:
+From portfolio theory we derive the returns and volatility of an investment
+portfolio from the elements (weight \(w_i\), return \(R_i\), volatility
+\(\sigma_i\), correlation \(\rho_{i, j}\)) of individual investment:
 \begin{align*}
   \mu_p & = E(R_p) \\
   R_p & = \sum_{i=1}^{n} w_i R_i \\
   \sigma_p^2 & = \sum_{i=1}^{n} w_i^2 \sigma_i^2
-  + 2 \sum_{1 \leq i < j \leq n} \rho_{i, j} w_i w_j \sigma_i \sigma_j
+               + 2 \sum_{1 \leq i < j \leq n} \rho_{i, j} w_i w_j \sigma_i \sigma_j
 \end{align*}
 
-Suppose we still retain the normal distribution assumption for the returns of individual investment in a portfolio, then we can derive \(VaR_{1-\alpha, p} = \mu_p + Z_{\alpha} \sigma\) by sustituting the individual elements into the equation.
+Suppose we still retain the normal distribution assumption for the returns of
+individual investment in a portfolio, then we can derive \(VaR_{1-\alpha, p} =
+\mu_p + Z_{\alpha} \sigma\) by sustituting the individual elements into the
+equation.
 
-The multi-period \(VaR\) can essentially be represented as a portfolio \(VaR\) where we should take autocorrelation into account.
+The multi-period \(VaR\) can essentially be represented as a portfolio \(VaR\)
+where we should take autocorrelation into account.
 
-If we further impose the condition that the individual returns are \(i.i.d\) then we can derive simpler expression for the portfolio/multi-period \(VaR\). However this strong condition is generally not held.
+If we further impose the condition that the individual returns are \(i.i.d\)
+then we can derive simpler expression for the portfolio/multi-period \(VaR\).
+However this strong condition is generally not held.
 
-\bibliographystyle{jmr}
-\bibliography{G33D_bib}
+\bibliographystyle{jmr} \bibliography{G33D_bib}
 
 \end{document}

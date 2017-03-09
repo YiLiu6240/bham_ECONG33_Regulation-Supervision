@@ -11,33 +11,42 @@
 
 \section*{Opeartional Risk of Basel II}
 
-Defining operational risk by the Basel Committee: ``...the risk of loss resulting from inadequate or failed internal processes, people and systems or from external events''.
+Defining operational risk by the Basel Committee: ``...the risk of loss
+resulting from inadequate or failed internal processes, people and systems or
+from external events''.
 
 Four categories of causal factors:
 
 \begin{enumerate}
-    \item Internal processes;
-    \item Human resources;
-    \item Systems;
-    \item External events;
+\item Internal processes;
+\item Human resources;
+\item Systems;
+\item External events;
 \end{enumerate}
 
-Note: this definition includes legal risk but excludes strategic and reputational risk.
+Note: this definition includes legal risk but excludes strategic and
+reputational risk.
 
-Examples of Operational Rsik: available in your lecture notes. One of the most famous examples is the collapse of Barings Bank from rogue trading.
+Examples of Operational Rsik: available in your lecture notes. One of the most
+famous examples is the collapse of Barings Bank from rogue trading.
 
-Credit risks and market risks are easier to quantify (such as the parameters in IRB approach, or the VaR technique for market risk). It is difficult for a firm to quantify its operational risk.
+Credit risks and market risks are easier to quantify (such as the parameters in
+IRB approach, or the VaR technique for market risk). It is difficult for a firm
+to quantify its operational risk.
 
-The basic indicator approach and standardised approach are based on calculating the gross operating income (GOI) of a period. The capital requirement is then calculated by appying a risk factor to the GOI.
+The basic indicator approach and standardised approach are based on calculating
+the gross operating income (GOI) of a period. The capital requirement is then
+calculated by appying a risk factor to the GOI.
 
 
 \subsection{Basic Indicator Approach}
 
 \begin{align*}
-    K_{OR} = \alpha \frac{ \sum_{i=1}^{3} Max(0, GOI_{t-i}) }{ N }
+  K_{OR} = \alpha \frac{ \sum_{i=1}^{3} Max(0, GOI_{t-i}) }{ N }
 \end{align*}
 
-{\footnotesize where N is the number of years, of the last three, in which GOI was positive}
+{\footnotesize where N is the number of years, of the last three, in which GOI
+  was positive}
 
 For BIA, the risk factor \(\alpha\) is fixed at 15\%.
 
@@ -45,44 +54,43 @@ For BIA, the risk factor \(\alpha\) is fixed at 15\%.
 \subsection{Standardised Approach}
 
 \begin{align*}
-    K_{OR} = \sum_{i=1}^{3} \frac{ Max(\sum_{j=1}^{8} \beta_j {GOI}_{j, t-i}, 0) }{ 3 }
+  K_{OR} = \sum_{i=1}^{3} \frac{ Max(\sum_{j=1}^{8} \beta_j {GOI}_{j, t-i}, 0) }{ 3 }
 \end{align*}
 
-For standardised approach, the risk factor \(\beta\) varies with 8 business lines
+For standardised approach, the risk factor \(\beta\) varies with 8 business
+lines
 
 \begin{table}
-    \begin{threeparttable}
+  \begin{threeparttable}
 
         \caption[Risk Factors in Basel II Standardised Approach]{
             \textbf{Risk Factors in Basel II Standardised Approach} \\
             \centerline{\footnotesize{
                 % Basel Committe(2006)
                 \defcitealias{Basel2006Supervision}{Basel Committee, 2006}
-                \citepalias{Basel2006Supervision}
-            }}
-        }
+                \citepalias{Basel2006Supervision} }} }
 
         \begin{tabular}{lll}
-            \toprule
-            \(J\) & Business Line            & Beta Factor \\
-            1     & Corporate Finance        & 18\%        \\
-            2     & Trading and Sales        & 18\%        \\
-            3     & Retail Banking           & 12\%        \\
-            4     & Commercial Banking       & 15\%        \\
-            5     & Payments and Settlements & 18\%        \\
-            6     & Agency Services          & 15\%        \\
-            7     & Asset Management         & 12\%        \\
-            8     & Retail Brokerage         & 12\%        \\
-            \bottomrule
+          \toprule
+          \(J\) & Business Line            & Beta Factor \\
+          1     & Corporate Finance        & 18\%        \\
+          2     & Trading and Sales        & 18\%        \\
+          3     & Retail Banking           & 12\%        \\
+          4     & Commercial Banking       & 15\%        \\
+          5     & Payments and Settlements & 18\%        \\
+          6     & Agency Services          & 15\%        \\
+          7     & Asset Management         & 12\%        \\
+          8     & Retail Brokerage         & 12\%        \\
+          \bottomrule
         \end{tabular}
 
         \begin{tablenotes}
-            \item
+        \item
         \end{tablenotes}
 
-    \end{threeparttable}
-\end{table}
-\FloatBarrier
+      \end{threeparttable}
+    \end{table}
+    \FloatBarrier
 
 \section*{Stressed \(VaR\)(\(sVaR\)) of Basel 2.5}
 
@@ -120,51 +128,48 @@ Minimum of 3\%
 \section*{Liquidity of Basel III: Net Stable Funding Ratio}
 
 \begin{align*}
-    \frac{ \textit{Amount of stable funding} }{ \textit{Required amount of stable funding} } \geq 100\%
+  \frac{ \textit{Amount of stable funding} }{ \textit{Required amount of stable funding} } \geq 100\%
 \end{align*}
 
-Each items in the numerator/the denominator is weighted by a risk factor. The available stable funding factor (ASF) for the numerator and the required stable funding (RSF) for the denominator.
+Each items in the numerator/the denominator is weighted by a risk factor. The
+available stable funding factor (ASF) for the numerator and the required stable
+funding (RSF) for the denominator.
 
 \begin{table}
-    \begin{threeparttable}
+  \begin{threeparttable}
 
-        \caption[ASF and RSF factors for Net Stable Funding Ratio]{
-            \textbf{ASF and RSF factors for Net Stable Funding Ratio} \\
-            \centerline{\footnotesize{
-                \citep[Chap.13, pp.293-294]{hull2012risk}
-            }}
-        }
+    \caption[ASF and RSF factors for Net Stable Funding Ratio]{
+      \textbf{ASF and RSF factors for Net Stable Funding Ratio} \\
+      \centerline{\footnotesize{ \citep[Chap.13, pp.293-294]{hull2012risk} }} }
 
         \begin{tabular}{lp{12cm}}
-            \toprule
-            \textbf{ASF Factor} & Category                                                                                                                                                                                                          \\ \hline
-            100\%               & Tier 1 and Tier 2 capital; Preferred stock and borrowing with a remaining maturity greater than one year                                                                                                          \\ \hline
-            90\%                & ``Stable'' demand deposits and term deposits with remaining maturity less than one year provided by retail or small business customers                                                                            \\ \hline
-            80\%                & ``Less Stable'' demand deposits and term deposits with remaining maturity less than one year provided by retail or small business customers                                                                       \\ \hline
-            50\%                & Wholesale demand deposits and term deposits with remaining maturity less than one year provided by nonfinancial corporates, sovereigns, central banks, multilateral development banks, and public sector entities \\ \hline
-            0\%                 & All other liability and equity categories                                                                                                                                                                         \\ \hline
-            \multicolumn{2}{l}{  }                                                                                                                                                                                                                  \\ \hline
-            \textbf{RSF Factor} & Category                                                                                                                                                                                                          \\ \hline
-            0\%                 & Cash; Short-term instruments, securities, loans to financial entities if they have a residual maturity of less than one year                                                                                      \\ \hline
-            5\%                 & Marketable securities with a residual maturity greater than one year if they are claims on sovereign governments or similar bodies with a 0\% risk weight                                                         \\ \hline
-            20\%                & Corporate bonds with a rating of AA- or higher and a residual maturity greater than one year; Claims on sovereign governments or similar bodies with a risk weight of 20\%                                        \\ \hline
-            50\%                & Gold, equity securities, bonds rated A+ to A-                                                                                                                                                                     \\ \hline
-            65\%                & Residential mortgages                                                                                                                                                                                             \\ \hline
-            85\%                & Loans to retail and small business customers with a remaining maturity less than one year                                                                                                                         \\ \hline
-            100\%               & All other assets                                                                                                                                                                                                  \\
-            \bottomrule
+          \toprule
+          \textbf{ASF Factor} & Category                                                                                                                                                                                                          \\ \hline
+          100\%               & Tier 1 and Tier 2 capital; Preferred stock and borrowing with a remaining maturity greater than one year                                                                                                          \\ \hline
+          90\%                & ``Stable'' demand deposits and term deposits with remaining maturity less than one year provided by retail or small business customers                                                                            \\ \hline
+          80\%                & ``Less Stable'' demand deposits and term deposits with remaining maturity less than one year provided by retail or small business customers                                                                       \\ \hline
+          50\%                & Wholesale demand deposits and term deposits with remaining maturity less than one year provided by nonfinancial corporates, sovereigns, central banks, multilateral development banks, and public sector entities \\ \hline
+          0\%                 & All other liability and equity categories                                                                                                                                                                         \\ \hline
+          \multicolumn{2}{l}{  }                                                                                                                                                                                                                  \\ \hline
+          \textbf{RSF Factor} & Category                                                                                                                                                                                                          \\ \hline
+          0\%                 & Cash; Short-term instruments, securities, loans to financial entities if they have a residual maturity of less than one year                                                                                      \\ \hline
+          5\%                 & Marketable securities with a residual maturity greater than one year if they are claims on sovereign governments or similar bodies with a 0\% risk weight                                                         \\ \hline
+          20\%                & Corporate bonds with a rating of AA- or higher and a residual maturity greater than one year; Claims on sovereign governments or similar bodies with a risk weight of 20\%                                        \\ \hline
+          50\%                & Gold, equity securities, bonds rated A+ to A-                                                                                                                                                                     \\ \hline
+          65\%                & Residential mortgages                                                                                                                                                                                             \\ \hline
+          85\%                & Loans to retail and small business customers with a remaining maturity less than one year                                                                                                                         \\ \hline
+          100\%               & All other assets                                                                                                                                                                                                  \\
+          \bottomrule
         \end{tabular}
 
         \begin{tablenotes}
-            \item
+        \item
         \end{tablenotes}
 
 
-    \end{threeparttable}
-\end{table}
+      \end{threeparttable}
+    \end{table}
 
-\FloatBarrier
-\bibliographystyle{jmr}
-\bibliography{G33D_bib}
+    \FloatBarrier \bibliographystyle{jmr} \bibliography{G33D_bib}
 
 \end{document}

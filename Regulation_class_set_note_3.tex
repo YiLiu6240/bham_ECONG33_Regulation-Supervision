@@ -1,18 +1,21 @@
-\documentclass[12pt]{article}
-\input{assets/article_preamble.tex}
+\documentclass[12pt]{article} \input{assets/article_preamble.tex}
 
-\author{Yi Liu (yxl105[at]bham.ac.uk)\\\scriptsize{\url{https://github.com/YiLiu6240/bham_ECONG33_Regulation-Supervision}}}
-\date{\today}
+\author{Yi Liu
+  (yxl105[at]bham.ac.uk)\\\scriptsize{\url{https://github.com/YiLiu6240/bham_ECONG33_Regulation-Supervision}}}
 \title{G33D - Class Note 3\\Basel I}
+\date{\today}
 
 \begin{document}
 \maketitle
 \tableofcontents
 \newpage
 
-For detailed explanations please refer to: Hull, Ch. 12; Resti and Sironi, Risk Management and Shareholders’ Value in Banking, Ch. 18.
+For detailed explanations please refer to: Hull, Ch. 12; Resti and Sironi, Risk
+Management and Shareholders’ Value in Banking, Ch. 18.
 
-The intuition of the Basel I Capital Adequacy Requirement is that the regulatory capital should be at least 8\% of the risk-weighted assets, and at least 50\% of the regulatory capital should be Tier 1 (Cooke Ratio).
+The intuition of the Basel I Capital Adequacy Requirement is that the regulatory
+capital should be at least 8\% of the risk-weighted assets, and at least 50\% of
+the regulatory capital should be Tier 1 (Cooke Ratio).
 \begin{align*}
   \textit{Tier 1 Capital} \geq 4\% \, \textit{of RWA} \\
   \textit{Tier 1 Capital} + \textit{Tier 2 Capital} \geq 8\% \, \textit{of RWA}
@@ -22,7 +25,8 @@ The intuition of the Basel I Capital Adequacy Requirement is that the regulatory
 
 \subsection{On-Balance-Sheet Items}
 
-For on-balance-sheet items, we mutiply their asset amounts with their corresponding risk weights.
+For on-balance-sheet items, we mutiply their asset amounts with their
+corresponding risk weights.
 
 % Table 1 Risk Weights for On-Balance-Sheet Items
 \begin{table}[htbp]
@@ -30,9 +34,8 @@ For on-balance-sheet items, we mutiply their asset amounts with their correspond
   \begin{threeparttable}[t]
     \caption[Risk Weights for On-Balance-Sheet Items]{
       \textbf{Risk Weights for On-Balance-Sheet Items} \\
-      \footnotesize{
-        \centerline{\footnotesize{
-            \citep[Chap.12, pp. 260]{hull2012risk}}}}}
+      \footnotesize{ \centerline{\footnotesize{ \citep[Chap.12, pp.
+            260]{hull2012risk}}}}}
 
     \begin{tabular}{rp{12cm}}
       \toprule
@@ -46,9 +49,10 @@ For on-balance-sheet items, we mutiply their asset amounts with their correspond
     \end{tabular}
 
     \begin{tablenotes}
-    \item
-      \footnotesize{
-        * The risk weights for off-balance-sheet items are similar to those in the Table except that \textbf{the risk weight for a corporation is 0.5} rather than 1.0 when off-balance-sheet items are considered.}
+    \item \footnotesize{ * The risk weights for off-balance-sheet items are
+        similar to those in the Table except that \textbf{the risk weight for a
+          corporation is 0.5} rather than 1.0 when off-balance-sheet items are
+        considered.}
     \end{tablenotes}
 
   \end{threeparttable}
@@ -57,11 +61,14 @@ For on-balance-sheet items, we mutiply their asset amounts with their correspond
 
 \subsection{Off-Balance-Sheet Items}
 
-For off-balance-sheet items, their \textit{credit equivalent amounts} are considered as their ``asset amounts''.
+For off-balance-sheet items, their \textit{credit equivalent amounts} are
+considered as their ``asset amounts''.
 
 \begin{itemize}
-\item For \textbf{non-derivatives}, the credit equivalent amount is calculated by applying a conversion factor to the principal amount of the instrument.
-\item For derivatives, the formula for the credit equivalent amount for derivative \(j\) is
+\item For \textbf{non-derivatives}, the credit equivalent amount is calculated
+  by applying a conversion factor to the principal amount of the instrument.
+\item For derivatives, the formula for the credit equivalent amount for
+  derivative \(j\) is
   \begin{align*}
     C_{j} = max( V_{j}, 0 ) + a_{j} L_{j}
   \end{align*}
@@ -74,8 +81,7 @@ For off-balance-sheet items, their \textit{credit equivalent amounts} are consid
 \begin{table}[htbp]
   \caption[Add-on Factors as a Percent of Principal for Derivatives]{
     \textbf{Add-on Factors as a Percent of Principal for Derivatives} \\
-    \centerline{\footnotesize{
-        \citep[Chap.12, pp. 261]{hull2012risk}}}}
+    \centerline{\footnotesize{ \citep[Chap.12, pp. 261]{hull2012risk}}}}
   \begin{tabular}{p{2cm}p{2cm}p{2cm}p{2cm}p{2cm}p{2cm}}
     \toprule
     \footnotesize{\textbf{Remaining Maturity}} & \footnotesize{\textbf{Interest Rate}} & \footnotesize{\textbf{Exchange Rate and Gold}} & \footnotesize{\textbf{Equity}} & \footnotesize{\textbf{Precious Metals except Gold}} & \footnotesize{\textbf{Other Commodities}} \\
@@ -91,7 +97,8 @@ For off-balance-sheet items, their \textit{credit equivalent amounts} are consid
 
 \subsubsection{Netting}
 
-With netting, the credit equivalent amount(CEA) of the derivatives for a particular counterparty and the net replacement ratio(NRR) is
+With netting, the credit equivalent amount(CEA) of the derivatives for a
+particular counterparty and the net replacement ratio(NRR) is
 \begin{align*}
   CEA & = max(\sum_{i=1}^{N} V_{i}, 0) + (0.4 + 0.6 NRR) \sum_{i=1}^{N} a_{i} L_{i} \\
   NRR & = \frac{ max(\sum_{i=1}^{N} V_{i}, 0) }{  \sum_{i=1}^{N} max(V_{i}, 0) }
@@ -99,7 +106,8 @@ With netting, the credit equivalent amount(CEA) of the derivatives for a particu
 
 \subsection{Total risk Weighted Assets}
 
-The total risk weighted assets for a bank with N on-balance-sheet items and M off-balance-sheet items is
+The total risk weighted assets for a bank with N on-balance-sheet items and M
+off-balance-sheet items is
 
 \begin{align*}
   \sum_{i=1}^{N} w_{i} L_{i} + \sum_{j=1}^{M} w_{j}^{*} C_{j}
@@ -111,8 +119,8 @@ The total risk weighted assets for a bank with N on-balance-sheet items and M of
 
   \caption[Components of Regulatory Capital in the Basel Capital Accord]{
     \textbf{Components of Regulatory Capital in the Basel Capital Accord} \\
-    \centerline{\footnotesize{
-        \citep[Chap.18, pp.550]{RestiSironi2007Banking}}}}
+    \centerline{\footnotesize{ \citep[Chap.18,
+        pp.550]{RestiSironi2007Banking}}}}
 
   \begin{tabular}{|p{3cm}|p{8cm}|p{3cm}|}
 
@@ -142,8 +150,6 @@ The total risk weighted assets for a bank with N on-balance-sheet items and M of
   \end{tabular}
 \end{table}
 
-\FloatBarrier
-\bibliographystyle{jmr}
-\bibliography{G33D_bib}
+\FloatBarrier \bibliographystyle{jmr} \bibliography{G33D_bib}
 
 \end{document}

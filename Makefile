@@ -23,7 +23,7 @@ cleanall:
 	rm -rf $(OUTDIR)
 	rm -rf prebuild
 
-.PHONY: all clean cleanall note1 note2 note3 note4 note5 assets
+.PHONY: all clean cleanall note1 note2 note3 note4 note5 assets prebuild
 
 note1: assets
 	mkdir -p $(OUTDIR)
